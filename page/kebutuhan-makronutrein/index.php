@@ -1,3 +1,15 @@
+<?php 
+
+include "main.php";
+
+$AKG = 0;
+if(isset($_POST['hasil'])) {
+    $AKG = $_POST['AKG'];
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +19,7 @@
 </head>
 <body>
 
-    <?php include "layout/header.php" ?>
+    <?php include __DIR__."/../../layout/header.php" ?>
 
     <main>
         <h2>Kebutuhan Makronutrein</h2>
@@ -17,24 +29,25 @@
 
     </main>
 
-    <from>
+    <form action="index.php" method="POST">
         <h3>Hitung Kebutuhan Protein, Karbohidrat, dan Lemak</h3>
 
         <label for="AKG">Masukan AKG anda : </label>
         <br>
         <input type="number" id="AKG" name="AKG"/>
         <br><br>
+        <button name="hasil">hitung makronutrein</button>
 
-    </from>
+    </form>
 
     <div>
         <h3>Hasil perhitungan kebutuhan Protein, Karbohidrat, dan Lemak</h3>
-        <p>Protein : (hasil) gram/hari</p>
-        <p>Karbohidrat : (hasil) gram/hari</p>
-        <p>Lemak : (hasil) gram/hari</p>
+        <p>Protein : <?=protein($AKG) ?> gram/hari</p>
+        <p>Karbohidrat : <?=karbohidrat($AKG) ?> gram/hari</p>
+        <p>Lemak : <?=lemak($AKG) ?> gram/hari</p>
     </div>
     
-    <?php include "layout/footer.php" ?>
+    <?php include __DIR__."/../../layout/footer.php" ?>
 
 </body>
 </html>

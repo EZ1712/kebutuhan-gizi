@@ -1,3 +1,24 @@
+<?php 
+
+include "main.php";
+
+$hasil = "";
+
+if(isset($_POST['hasil'])) {
+    $jenis_kelamin = $_POST['jenis_kelamin'];
+    $kondisi = $_POST['kondisi'];
+    $bb = $_POST['berat_badan'];
+    $tb = $_POST['tinggi_badan'];
+    $usia = $_POST['usia'];
+    $aktifitas = $_POST['aktifitas_olahraga'];
+    $stress = $_POST['tingkat_stress'];
+
+    // echo $jenis_kelamin." ".$kondisi." ".$bb." ".$tb." ".$aktifitas." ".$stress;
+    $hasil = AKG($jenis_kelamin,$bb, $tb, $usia, $aktifitas, $stress);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +28,7 @@
 </head>
 <body>
 
-    <?php include "layout/header.php" ?>
+    <?php include __DIR__.  "/../../layout/header.php" ?>
 
     <main>
         <h2>Kebutuhan Gizi Harian</h2>
@@ -17,7 +38,7 @@
 
     </main>
 
-    <form>
+    <form action="index.php" method="POST">
 
         <label>Masukan Jenis kelamin anda : </label>
         <br>
@@ -93,16 +114,20 @@
         stress sedang : sepsis, bedah tulang, luka bakar, penyakit hati <br>
         stress berat : HIV aids + komlikasi, bedah multisistem, TB patu + komplikas <br>
         stress sangat berat : Luka kepala berat</p>
+        <br><br>
+
+        <button name="hasil">hitung kebutuhan gizi/AKG</button>
         
     </form>
 
     <div>
         <h3>Hasil Kebutuhan Gizi anda</h3>
-        <p>hasil dari perhitungan untuk kebutuhan gizi anda perhari adalah (hasil)</p>
+        <p>hasil dari perhitungan untuk kebutuhan gizi anda perhari adalah (hasil muncul di bawah sini)</p>
+        <p>AKG/Kebutuhan gizi : <?=$hasil?> kkal</p>
 
     </div>
     
-    <?php include "layout/footer.php" ?>
+    <?php include __DIR__. "/../../layout/footer.php" ?>
 
 </body>
 </html>

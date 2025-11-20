@@ -1,5 +1,5 @@
     <header>
         <h1>Kebutuhan Gizi</h1>
-        <a href="index.php">Home</a>
-        <a href="about.php">About</a>
+        <a href="/kebutuhan-gizi/index.php">Home</a>
+        <a href="/kebutuhan-gizi/about.php">About</a>
     </header>
