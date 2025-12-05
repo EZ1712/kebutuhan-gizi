@@ -1,10 +1,16 @@
 <?php 
 
+ini_set('display_errors', 0);
+// ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+
+
 include "main.php";
 
 $hasil = "";
 
 if(isset($_POST['hasil'])) {
+
     $jenis_kelamin = $_POST['jenis_kelamin'];
     $kondisi = $_POST['kondisi'];
     $bb = $_POST['berat_badan'];
@@ -13,7 +19,6 @@ if(isset($_POST['hasil'])) {
     $aktifitas = $_POST['aktifitas_olahraga'];
     $stress = $_POST['tingkat_stress'];
 
-    // echo $jenis_kelamin." ".$kondisi." ".$bb." ".$tb." ".$aktifitas." ".$stress;
     $hasil = AKG($jenis_kelamin,$bb, $tb, $usia, $aktifitas, $stress);
 }
 
@@ -25,6 +30,8 @@ if(isset($_POST['hasil'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kebutuhan Gizi</title>
+    <!-- <link rel="stylesheet" href="../../src/output.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
 

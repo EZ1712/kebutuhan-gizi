@@ -2,7 +2,9 @@
 
 function AKG($jenis_kelamin,$bb, $tb, $usia, $aktifitas, $stress) {
     
- 
+    if ($jenis_kelamin == null || $bb == null || $tb == null || $usia == null || $aktifitas == null || $stress == null) {
+        return "Masukan Input dengan Benar";
+    }
 
     if ($jenis_kelamin = "laki_laki") {
         $BMR = 66 + (13.7*$bb) + (5*$tb) - (6.8*$usia);

@@ -2,12 +2,20 @@
 
 include "main.php";
 
-$AKG = 0;
+$protein = null;
+$karbohidrat = null;
+$lemak = null;
+$AKG = null;
+
+
 if(isset($_POST['hasil'])) {
     $AKG = $_POST['AKG'];
 
+    $protein = protein($AKG);
+    $karbohidrat = karbohidrat($AKG);
+    $lemak = lemak($AKG);
 }
-
+// $protein = protein($AKG);
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +24,8 @@ if(isset($_POST['hasil'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kebutuhan Gizi</title>
+    <!-- <link rel="stylesheet" href="../../src/output.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
 
@@ -42,9 +52,9 @@ if(isset($_POST['hasil'])) {
 
     <div>
         <h3>Hasil perhitungan kebutuhan Protein, Karbohidrat, dan Lemak</h3>
-        <p>Protein : <?=protein($AKG) ?> gram/hari</p>
-        <p>Karbohidrat : <?=karbohidrat($AKG) ?> gram/hari</p>
-        <p>Lemak : <?=lemak($AKG) ?> gram/hari</p>
+        <p>Protein : <?=$protein ?> gram/hari</p>
+        <p>Karbohidrat : <?=$karbohidrat ?> gram/hari</p>
+        <p>Lemak : <?=$lemak ?> gram/hari</p>
     </div>
     
     <?php include __DIR__."/../../layout/footer.php" ?>

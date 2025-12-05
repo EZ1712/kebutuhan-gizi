@@ -1,7 +1,15 @@
 <?php 
 
+$berat_badan = 0;
+$tinggi_badan = 1;
+
 function BMI($berat_badan, $tinggi_badan) {
-    $tinggi_badan /= 100; 
+
+    if ($berat_badan == null || $tinggi_badan == null) {
+        return "Masukan input dengan benar!";
+    }
+
+    $tinggi_badan = $tinggi_badan / 100; 
     $hasil = $berat_badan / ($tinggi_badan * $tinggi_badan);
     if ($hasil < 18.5) {
         return $value = round($hasil, 1)." : "."berat badan kurang / underweight";
@@ -13,6 +21,8 @@ function BMI($berat_badan, $tinggi_badan) {
         return $value = round($hasil, 1)." : "."obesitas 1";
     } else if ($hasil > 30) {
         return $value = round($hasil, 1)." : "."obesitas 2";
+    } else {
+        return "input tidak ada";
     }
 }
 

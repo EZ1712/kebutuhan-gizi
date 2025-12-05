@@ -3,6 +3,10 @@
 include "main.php";
     $hasil = "";
     if(isset($_POST['hitung'])) {
+
+        $berat_badan = 0;
+        $tinggi_badan = 1;
+
         $berat_badan = $_POST['berat_badan'];
         $tinggi_badan = $_POST['tinggi_badan'];
 
@@ -19,9 +23,10 @@ include "main.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kebutuhan Gizi</title>
+    <!-- <link rel="stylesheet" href="../../src/output.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-
     <?php include __DIR__.  "/../../layout/header.php" ?>
 
     <main>
